@@ -30,7 +30,6 @@ completed.addEventListener('click', (event) => {
 let butt = document.querySelector('.buttonSave') || null;
 
 function edit(element) {
-    //нуб нужно пофиксить сохранение элементов 10,02,22
     const pText = element.innerText
     let LiLi = element.parentNode
     const inputText = document.createElement('input')
@@ -50,10 +49,9 @@ function edit(element) {
         let el = element
         el.innerText = textEdit
         LiLi.firstChild.insertAdjacentElement('afterEnd', el)
-        inp.style.display = 'none'
-        butt.style.display = 'none'
+        inp.remove()
+        butt.remove()
     });
-    // element.contentEditable = true
 }
 
 out.addEventListener('click', (event) => {
@@ -75,14 +73,12 @@ function removeTodo(element) {
 function addTodo() {
     const inpValue = input.value;
     const li = createListElement(inpValue)
-        // li.setAttribute('contenteditable', 'true')
     out.prepend(li)
     input.value = ''
 }
 
 function createListElement(textValue) {
     const checkbox = createChekbox()
-        // const icon = createIcon()
     const text = createText(textValue)
     const del = creatDelet()
     const li = createListItem()
@@ -92,13 +88,11 @@ function createListElement(textValue) {
 
 function createListItem() {
     const li = document.createElement('li')
-        // li.classList.add('les', "lis")
     return li;
 }
 
 function creatDelet() {
     const del = document.createElement('button')
-        // del.appendChild(document.createTextNode('delete'))
     del.classList.add("delete")
     del.innerText = 'delete'
     return del;
@@ -127,95 +121,3 @@ addTask.addEventListener('click', () => {
 
 
 
-// function cheked() {
-//     const res = document.querySelector('li')
-//     const ul = document.querySelector('.completed')
-//     ul.append(res)
-
-// }
-
-// function nochecked() {
-//     const res2 = document.querySelector('li')
-//     const ulu = document.querySelector(".out")
-//     ulu.append(res2)
-// }
-
-
-// completed.addEventListener('click', (event) => {
-//     if (event.target.classList.contains('delete')) {
-//         removeTodo(event.target)
-//     }
-//     if (event.target.classList.contains('chk')) {
-//         nochecked()
-
-//     }
-// })
-
-//по чекбоксу перечеркнуть ли
-
-
-
-
-// function createIcon() {
-//     const icon = document.createElement('i')
-//     icon.classList.add("fa", "fa-trash-o", "de")
-//     return icon;
-// }
-
-
-
-// for (let i = 0; i < arr.length; i++) {
-//     const element = arr[i];
-//     nul += element
-
-
-
-// }
-// input.addEventListener("input", ButtonED);
-
-// function ButtonED() {
-//     if (!input.value.length) {
-//         addTask.disabled = true;
-//     } else {
-//         addTask.disabled = false;
-//     }
-// }
-// ButtonED()
-
-
-// const addbtn = document.querySelector('#addbtn2')
-
-// addbtn.addEventListener('click', () => {
-//     inputAdd()
-// })
-
-// function inputAdd() {
-//     const dew = document.querySelector('.completed')
-//     const inpt = input.value
-//     const ivi = document.createElement('div')
-//     ivi.innerText = inpt
-//     dew.append(ivi)
-
-//for / через методы 
-
-
-
-
-// }
-// if (input.value !== '') {
-//     addTask.disabled = false
-// } else {
-//     addTask.disabled = true
-// }
-
-// input.value.length < 1 ? addTask.disabled = true : addTask.disable = false
-
-// input.addEventListener('input', (e) => {
-//     if (!e.target.value.length) {
-
-//         document.querySelector('#btn').setAttribute('disabled')
-//     } else {
-
-//         document.querySelector('#btn').removeAttribute('disabled')
-//     }
-// })
